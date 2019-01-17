@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+  <% for (var i = 0; i < results.length; i++) { %>
+    <% var photo = JSON.stringify(results[i].Property.Photo[0].HighResPath) %>
+    <img src="<%= photo.replace(/["']/g, "") %>" alt="">
+    <%  var address = JSON.stringify(results[i].Property.Address.AddressText) %>
+     <h2><%= address.replace(/["']/g, "")%><span style="padding-left: 10%;">Price: <%= JSON.stringify(results[i].Property.Price) %></span></h2>
+    <p style="width: 60%;"><%= JSON.stringify(results[i].PublicRemarks) %></p>
+  <% } %>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
